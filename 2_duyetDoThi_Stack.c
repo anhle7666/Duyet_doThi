@@ -82,27 +82,22 @@ int mark[MAX_VERTEXES];
 /* Duyet do thi theo chieu sau */
 void depth_first_search(Graph* G, int x) {
 	Stack frontier;
-//int mark[MAX_VERTEXES];
-//int duyet[MAX_NODES];
 	make_null_stack(&frontier);
-/* Khoi tao mark, chua dinh n‡o duoc xÈt */
+/* Khoi tao mark, chua dinh n√†o duoc x√©t */
 	int j;
-//int i;
 	for (j = 1; j <= G->n; j++)
-//mark[j] = 0;
-/* –ua 1 v‡o frontier */
-	push(&frontier, x);
+		push(&frontier, x);/* √êua 1 v√†o frontier */
 /* Vong lap chinh dung de duyet */
 	while (!empty(&frontier)) {
-/* Lay phan tu dau tiÍn trong frontier ra */
+	/* Lay phan tu dau ti√™n trong frontier ra */
 		int x = top(&frontier); pop(&frontier);
 		if (mark[x] != 0)
 			continue;	
 		printf("%d\n", x);
-		mark[x] = 1; //–·nh d?u nÛ d„ duy?t
-/* L?y c·c d?nh k? c?a nÛ */
+		mark[x] = 1; //√ê√°nh d?u n√≥ d√£ duy?t
+
 		List list = neighbors(G, x);
-/* XÈt c·c d?nh k? c?a nÛ */
+
 		for (j = 1; j <= list.size; j++) {
 			int y = element_at(&list, j);
 				push(&frontier, y);
@@ -112,17 +107,16 @@ void depth_first_search(Graph* G, int x) {
 int main () {
 	freopen("dt.txt", "r", stdin);
 	Graph G;
-int n, m, u, v, w, e, x;
-scanf("%d%d", &n, &m);
-init_graph(&G, n);
-for (e = 0; e < m; e++) {
-scanf("%d%d", &u, &v);
-add_edge(&G, u, v);
-//depth_first_search(&G);
-}
-depth_first_search(&G, 1);
-for (w = 1; w <= n; w++)
-if (mark[w] == 0)
-depth_first_search(&G, w);
-return 0;
+	int n, m, u, v, w, e, x;
+	scanf("%d%d", &n, &m);
+	init_graph(&G, n);
+	for (e = 0; e < m; e++) {
+		scanf("%d%d", &u, &v);
+		add_edge(&G, u, v);
+	}
+	depth_first_search(&G, 1);
+	for (w = 1; w <= n; w++)
+		if (mark[w] == 0)
+	depth_first_search(&G, w);
+	return 0;
 }

@@ -87,7 +87,7 @@ void depth_first_search(Graph* G, int x) {
 	int j;
 	for (j = 1; j <= G->n; j++)
 		push(&frontier, x);/* Ðua 1 vào frontier */
-/* Vong lap chinh dung de duyet */
+	/* Vong lap chinh dung de duyet */
 	while (!empty(&frontier)) {
 	/* Lay phan tu dau tiên trong frontier ra */
 		int x = top(&frontier); pop(&frontier);
@@ -107,7 +107,7 @@ void depth_first_search(Graph* G, int x) {
 int main () {
 	freopen("dt.txt", "r", stdin);
 	Graph G;
-	int n, m, u, v, w, e, x;
+	int n, m, u, v, w, e;
 	scanf("%d%d", &n, &m);
 	init_graph(&G, n);
 	for (e = 0; e < m; e++) {
